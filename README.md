@@ -2,7 +2,7 @@
 cxkes XUIDGrabber as a POST request
 
 # Usage
- `app.js <GamertagToConvert>`
+ `app.js <GamertagToConvert> (--detailed)`
  
 For example:
 
