@@ -2,9 +2,9 @@
   "name": "xuid",
   "version": "1.0.0",
   "description": "Gamertag to XUID Convertor",
-  "main": "app.js",
+  "main": "grabber.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node grabber.js"
   },
   "author": "carlop3k (cxkes the api)",
   "license": "MIT",
