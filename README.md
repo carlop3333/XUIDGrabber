@@ -26,7 +26,7 @@ following: 43
 
 ### API
 
-You can use `require` to import the grabber
+You can use `require` to import the grabber to your project
 ```
 const grabber = require('XUIDGrabber')
 ```
