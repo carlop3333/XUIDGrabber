@@ -1,6 +1,7 @@
-import fetch from "node-fetch";
-import fs from "fs";
-import cheerio from "cheerio";
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fs = require("fs");
+const cheerio = require("cheerio")
+
 
 var config;
 
@@ -30,7 +31,6 @@ async function doRequest() {
     config = JSON.parse(fs.readFileSync("./token.json").toString("utf8"));
   } catch (e) {
     config = JSON.stringify({cookie: "", token: ""})
-    console.error(e);
   }
   const data = `_token=${config.token}&gamertag=${gamertag[0]}`;
   const header = {
@@ -48,6 +48,7 @@ async function doRequest() {
     "Sec-Fetch-Site": "same-origin",
     "Sec-Fetch-User": "?1",
     "User-Agent":
+    // average user, right?
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
     Accept:
       "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -117,20 +118,26 @@ async function doRequest() {
   }
 }
 
-if (gamertag[1] == "--detailed") {
-  const data = await doRequest();
-  if (data !== undefined) {
-    data.forEach((val, key) => {
-      console.log(`${key}: ${val}`);
-    });
-  } 
-} else if (gamertag[0] !== undefined) {
-  const data = await doRequest();
-  if (data !== undefined) {
-    console.log(`XUID: ${data.get("xuid-dec")}`);
+
+// thanks for not being a module
+if (gamertag[0] !== undefined || gamertag[1] !== undefined) {
+  isConsole()
+}
+async function isConsole() {
+  if (gamertag[1] == "--detailed") {
+    const data = await doRequest();
+    if (data !== undefined) {
+      data.forEach((val, key) => {
+        console.log(`${key}: ${val}`);
+      });
+    } 
+  } else if (gamertag[0] !== undefined) {
+    const data = await doRequest();
+    if (data !== undefined) {
+      console.log(`XUID: ${data.get("xuid-dec")}`);
+    }
   }
 }
-
 
 
 class XUIDGrabber {
@@ -140,4 +147,5 @@ class XUIDGrabber {
   }
 }
 
-export default XUIDGrabber = new XUIDGrabber()
+const xuidGrabber = new XUIDGrabber()
+module.exports = xuidGrabber;
