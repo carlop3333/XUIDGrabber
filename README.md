@@ -26,9 +26,9 @@ following: 43
 
 ### API
 
-You can use `require` to import the grabber to your project
+npm is still not supported at the moment
 ```
-const grabber = require('XUIDGrabber')
+import Grabber from './app.js'
 ```
 
 **Disclaimer:** This app can break in any moment (if the website changes), so feel free to fork it if you want.
