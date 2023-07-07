@@ -2,7 +2,7 @@
 cxkes XUIDGrabber as a POST request
 
 # Usage
- `app.js <GamertagToConvert> (--detailed)`
+ `grabber.js <GamertagToConvert> (--detailed)`
  
 For example:
 
@@ -28,7 +28,11 @@ following: 43
 
 npm is still not supported at the moment
 ```
-import Grabber from './app.js'
+import Grabber from './grabber.js'
+```
+or 
+```
+const grabber = require('./grabber.js')
 ```
 
 **Disclaimer:** This app can break in any moment (if the website changes), so feel free to fork it if you want.
