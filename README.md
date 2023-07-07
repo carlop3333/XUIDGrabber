@@ -2,7 +2,7 @@
 cxkes XUIDGrabber as a POST request
 
 # Usage
- `grabber.js <GamertagToConvert> (--detailed)`
+ `grabber.js <GamertagToConvert> (--detailed)` (the first time it will require a reload)
  
 For example:
 
@@ -26,14 +26,12 @@ following: 43
 
 ### API
 
-npm is still not supported at the moment
+npm is still not supported at the moment 
 ```
-import Grabber from './grabber.js'
+const grabber = require('./grabber.js') 
 ```
-or 
-```
-const grabber = require('./grabber.js')
-```
+It does have only a function (`getXUID(gamertag)`) that in fact returns a map (if the tokens are available)
+
 
 **Disclaimer:** This app can break in any moment (if the website changes), so feel free to fork it if you want.
 
