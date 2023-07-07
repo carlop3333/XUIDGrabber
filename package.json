@@ -1,0 +1,16 @@
+{
+  "name": "xuid",
+  "version": "1.0.0",
+  "description": "Gamertag to XUID Convertor",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "carlop3k (cxkes the api)",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.1"
+  },
+  "type": "module"
+}
