@@ -29,7 +29,7 @@ async function doRequest() {
   try {
     config = JSON.parse(fs.readFileSync("./token.json").toString("utf8"));
   } catch (e) {
-    config = JSON.parse({cookie: "", token: ""})
+    config = JSON.stringify({cookie: "", token: ""})
     console.error(e);
   }
   const data = `_token=${config.token}&gamertag=${gamertag[0]}`;
@@ -124,7 +124,7 @@ if (gamertag[1] == "--detailed") {
       console.log(`${key}: ${val}`);
     });
   } 
-} else {
+} else if (gamertag[0] !== undefined) {
   const data = await doRequest();
   if (data !== undefined) {
     console.log(`XUID: ${data.get("xuid-dec")}`);
@@ -133,9 +133,11 @@ if (gamertag[1] == "--detailed") {
 
 
 
-module.exports = class XUIDGrabber {
+class XUIDGrabber {
   async getXUID(gamerTag) {
     gamertag[0] = gamerTag
     return await doRequest()
   }
 }
+
+export default XUIDGrabber = new XUIDGrabber()
