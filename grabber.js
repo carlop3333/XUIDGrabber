@@ -21,7 +21,6 @@ async function goToToken() {
     })
   );
   console.log("Updated cookies and token! Nice... Reload!");
-  doRequest()
 }
 
 const gamertag = process.argv.slice(2);
