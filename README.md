@@ -1,5 +1,5 @@
 # XUIDGrabber
-cxkes XUIDGrabber as a POST request
+cxkes XUIDGrabber as a POST request <-- outdated method, soon you will need to use a openxbl api
 
 # Usage
  `grabber.js <GamertagToConvert> (--detailed)` (the first time it will require a reload)
